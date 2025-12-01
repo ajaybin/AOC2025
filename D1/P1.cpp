@@ -5,9 +5,10 @@
 int main() {
     int dial = 50;
     int password = 0;
-    std::ifstream i_file("input");
+    std::string filename = "input";
+    std::ifstream i_file(filename);
     if (!i_file.is_open()) {
-        std::cerr << "Failed to open file: input"  << '\n';
+        std::cerr << "Failed to open file " << filename << '\n';
         return 1;
     }
 
