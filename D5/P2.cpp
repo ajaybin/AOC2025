@@ -11,7 +11,7 @@ using ull = unsigned long long;
 using p_t = pair<ull,ull>;
 using v_t = vector<p_t>;
 
-v_t::iterator merge(v_t::iterator b, v_t::iterator e, v_t::iterator i) {
+v_t::iterator merge(v_t::const_iterator b, v_t::const_iterator e, v_t::iterator i) {
     *i = *b;
     for (auto it = b+1; it != e; ++it) {
         if (it->first <= i->second)
@@ -46,7 +46,7 @@ int main() {
         return a.first < b.first;
     });
     v_t result(intervals.size());
-    auto end_it = merge(intervals.begin(), intervals.end(), result.begin());
+    auto end_it = merge(intervals.cbegin(), intervals.cend(), result.begin());
     result.resize(end_it - result.begin());
     result.shrink_to_fit();
     for (auto r : result) {
