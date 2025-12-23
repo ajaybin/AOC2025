@@ -32,9 +32,6 @@ int main() {
             if (a.first == b.first) return a.second < b.second;
             else return a.first > b.first;
         });
-        for (const auto& p : values) {
-            //cout << "(" << p.first << ", " << p.second << ") ";
-        }
         int lb = 0;
         int ub = values.size() - sz;
         for (int i = 0; i < sz; ++i) {
